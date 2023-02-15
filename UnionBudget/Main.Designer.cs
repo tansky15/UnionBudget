@@ -30,9 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnionBudget));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuFichier = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuImprimer = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReinitialiser = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuQuitter = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuNouvelleCategorie = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTotalRevenu = new System.Windows.Forms.Label();
+            this.btnSuppressionSelectionRevenu = new System.Windows.Forms.Button();
             this.listRevenus = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTotalDepense = new System.Windows.Forms.Label();
+            this.btnSuppressionSelectionDepense = new System.Windows.Forms.Button();
             this.listDepenses = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarFooter = new System.Windows.Forms.ToolStripStatusLabel();
@@ -47,15 +56,6 @@
             this.numMontant = new System.Windows.Forms.TextBox();
             this.cBoxCategories = new System.Windows.Forms.ComboBox();
             this.txtTitre = new System.Windows.Forms.TextBox();
-            this.mnuFichier = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuImprimer = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuReinitialiser = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuQuitter = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuNouvelleCategorie = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSuppressionSelectionDepense = new System.Windows.Forms.Button();
-            this.btnSuppressionSelectionRevenu = new System.Windows.Forms.Button();
-            this.lblTotalDepense = new System.Windows.Forms.Label();
-            this.lblTotalRevenu = new System.Windows.Forms.Label();
             this.panResultat = new System.Windows.Forms.Panel();
             this.lblResultat = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -76,10 +76,53 @@
             this.mnuNouvelleCategorie});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1376, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "mnuStripHeader";
+            // 
+            // mnuFichier
+            // 
+            this.mnuFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuImprimer,
+            this.mnuReinitialiser,
+            this.mnuQuitter});
+            this.mnuFichier.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mnuFichier.Image = global::UnionBudget.Properties.Resources.copy_paste_document_file_1557;
+            this.mnuFichier.Name = "mnuFichier";
+            this.mnuFichier.Size = new System.Drawing.Size(102, 29);
+            this.mnuFichier.Text = "Fichier";
+            // 
+            // mnuImprimer
+            // 
+            this.mnuImprimer.Image = global::UnionBudget.Properties.Resources.printer_78349;
+            this.mnuImprimer.Name = "mnuImprimer";
+            this.mnuImprimer.Size = new System.Drawing.Size(306, 34);
+            this.mnuImprimer.Text = "Imprimer mes donees";
+            this.mnuImprimer.Click += new System.EventHandler(this.mnuImprimer_Click);
+            // 
+            // mnuReinitialiser
+            // 
+            this.mnuReinitialiser.Image = global::UnionBudget.Properties.Resources.emblemsynchronizing_93485;
+            this.mnuReinitialiser.Name = "mnuReinitialiser";
+            this.mnuReinitialiser.Size = new System.Drawing.Size(306, 34);
+            this.mnuReinitialiser.Text = "Reinisialier mes donnees";
+            this.mnuReinitialiser.Click += new System.EventHandler(this.mnuReinitialiser_Click);
+            // 
+            // mnuQuitter
+            // 
+            this.mnuQuitter.Image = global::UnionBudget.Properties.Resources.vcsconflicting_93497;
+            this.mnuQuitter.Name = "mnuQuitter";
+            this.mnuQuitter.Size = new System.Drawing.Size(306, 34);
+            this.mnuQuitter.Text = "Quitter";
+            this.mnuQuitter.Click += new System.EventHandler(this.mnuQuitter_Click);
+            // 
+            // mnuNouvelleCategorie
+            // 
+            this.mnuNouvelleCategorie.ForeColor = System.Drawing.Color.White;
+            this.mnuNouvelleCategorie.Image = global::UnionBudget.Properties.Resources.document_add_256_icon_icons_com_75994;
+            this.mnuNouvelleCategorie.Name = "mnuNouvelleCategorie";
+            this.mnuNouvelleCategorie.Size = new System.Drawing.Size(199, 29);
+            this.mnuNouvelleCategorie.Text = "Nouvelle categorie";
             // 
             // panel1
             // 
@@ -92,6 +135,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(468, 635);
             this.panel1.TabIndex = 3;
+            // 
+            // lblTotalRevenu
+            // 
+            this.lblTotalRevenu.AutoSize = true;
+            this.lblTotalRevenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRevenu.ForeColor = System.Drawing.Color.White;
+            this.lblTotalRevenu.Location = new System.Drawing.Point(59, 597);
+            this.lblTotalRevenu.Name = "lblTotalRevenu";
+            this.lblTotalRevenu.Size = new System.Drawing.Size(0, 29);
+            this.lblTotalRevenu.TabIndex = 4;
+            // 
+            // btnSuppressionSelectionRevenu
+            // 
+            this.btnSuppressionSelectionRevenu.Image = global::UnionBudget.Properties.Resources._1486504830_delete_dustbin_empty_recycle_recycling_remove_trash_81361;
+            this.btnSuppressionSelectionRevenu.Location = new System.Drawing.Point(410, 575);
+            this.btnSuppressionSelectionRevenu.Name = "btnSuppressionSelectionRevenu";
+            this.btnSuppressionSelectionRevenu.Size = new System.Drawing.Size(52, 57);
+            this.btnSuppressionSelectionRevenu.TabIndex = 3;
+            this.btnSuppressionSelectionRevenu.UseVisualStyleBackColor = true;
+            this.btnSuppressionSelectionRevenu.Click += new System.EventHandler(this.btnSuppressionSelectionRevenu_Click);
             // 
             // listRevenus
             // 
@@ -116,6 +179,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 635);
             this.panel2.TabIndex = 4;
+            // 
+            // lblTotalDepense
+            // 
+            this.lblTotalDepense.AutoSize = true;
+            this.lblTotalDepense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDepense.ForeColor = System.Drawing.Color.White;
+            this.lblTotalDepense.Location = new System.Drawing.Point(83, 590);
+            this.lblTotalDepense.Name = "lblTotalDepense";
+            this.lblTotalDepense.Size = new System.Drawing.Size(0, 29);
+            this.lblTotalDepense.TabIndex = 3;
+            // 
+            // btnSuppressionSelectionDepense
+            // 
+            this.btnSuppressionSelectionDepense.Image = global::UnionBudget.Properties.Resources._1486504830_delete_dustbin_empty_recycle_recycling_remove_trash_81361;
+            this.btnSuppressionSelectionDepense.Location = new System.Drawing.Point(410, 575);
+            this.btnSuppressionSelectionDepense.Name = "btnSuppressionSelectionDepense";
+            this.btnSuppressionSelectionDepense.Size = new System.Drawing.Size(52, 57);
+            this.btnSuppressionSelectionDepense.TabIndex = 2;
+            this.btnSuppressionSelectionDepense.UseVisualStyleBackColor = true;
+            this.btnSuppressionSelectionDepense.Click += new System.EventHandler(this.btnSuppressionSelectionDepense_Click);
             // 
             // listDepenses
             // 
@@ -274,89 +357,6 @@
             this.txtTitre.Size = new System.Drawing.Size(326, 35);
             this.txtTitre.TabIndex = 0;
             // 
-            // mnuFichier
-            // 
-            this.mnuFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuImprimer,
-            this.mnuReinitialiser,
-            this.mnuQuitter});
-            this.mnuFichier.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mnuFichier.Image = global::UnionBudget.Properties.Resources.copy_paste_document_file_1557;
-            this.mnuFichier.Name = "mnuFichier";
-            this.mnuFichier.Size = new System.Drawing.Size(102, 29);
-            this.mnuFichier.Text = "Fichier";
-            // 
-            // mnuImprimer
-            // 
-            this.mnuImprimer.Image = global::UnionBudget.Properties.Resources.printer_78349;
-            this.mnuImprimer.Name = "mnuImprimer";
-            this.mnuImprimer.Size = new System.Drawing.Size(306, 34);
-            this.mnuImprimer.Text = "Imprimer mes donees";
-            // 
-            // mnuReinitialiser
-            // 
-            this.mnuReinitialiser.Image = global::UnionBudget.Properties.Resources.emblemsynchronizing_93485;
-            this.mnuReinitialiser.Name = "mnuReinitialiser";
-            this.mnuReinitialiser.Size = new System.Drawing.Size(306, 34);
-            this.mnuReinitialiser.Text = "Reinisialier mes donnees";
-            this.mnuReinitialiser.Click += new System.EventHandler(this.mnuReinitialiser_Click);
-            // 
-            // mnuQuitter
-            // 
-            this.mnuQuitter.Image = global::UnionBudget.Properties.Resources.vcsconflicting_93497;
-            this.mnuQuitter.Name = "mnuQuitter";
-            this.mnuQuitter.Size = new System.Drawing.Size(306, 34);
-            this.mnuQuitter.Text = "Quitter";
-            this.mnuQuitter.Click += new System.EventHandler(this.mnuQuitter_Click);
-            // 
-            // mnuNouvelleCategorie
-            // 
-            this.mnuNouvelleCategorie.ForeColor = System.Drawing.Color.White;
-            this.mnuNouvelleCategorie.Image = global::UnionBudget.Properties.Resources.document_add_256_icon_icons_com_75994;
-            this.mnuNouvelleCategorie.Name = "mnuNouvelleCategorie";
-            this.mnuNouvelleCategorie.Size = new System.Drawing.Size(199, 29);
-            this.mnuNouvelleCategorie.Text = "Nouvelle categorie";
-            // 
-            // btnSuppressionSelectionDepense
-            // 
-            this.btnSuppressionSelectionDepense.Image = global::UnionBudget.Properties.Resources._1486504830_delete_dustbin_empty_recycle_recycling_remove_trash_81361;
-            this.btnSuppressionSelectionDepense.Location = new System.Drawing.Point(410, 575);
-            this.btnSuppressionSelectionDepense.Name = "btnSuppressionSelectionDepense";
-            this.btnSuppressionSelectionDepense.Size = new System.Drawing.Size(52, 57);
-            this.btnSuppressionSelectionDepense.TabIndex = 2;
-            this.btnSuppressionSelectionDepense.UseVisualStyleBackColor = true;
-            this.btnSuppressionSelectionDepense.Click += new System.EventHandler(this.btnSuppressionSelectionDepense_Click);
-            // 
-            // btnSuppressionSelectionRevenu
-            // 
-            this.btnSuppressionSelectionRevenu.Image = global::UnionBudget.Properties.Resources._1486504830_delete_dustbin_empty_recycle_recycling_remove_trash_81361;
-            this.btnSuppressionSelectionRevenu.Location = new System.Drawing.Point(410, 575);
-            this.btnSuppressionSelectionRevenu.Name = "btnSuppressionSelectionRevenu";
-            this.btnSuppressionSelectionRevenu.Size = new System.Drawing.Size(52, 57);
-            this.btnSuppressionSelectionRevenu.TabIndex = 3;
-            this.btnSuppressionSelectionRevenu.UseVisualStyleBackColor = true;
-            this.btnSuppressionSelectionRevenu.Click += new System.EventHandler(this.btnSuppressionSelectionRevenu_Click);
-            // 
-            // lblTotalDepense
-            // 
-            this.lblTotalDepense.AutoSize = true;
-            this.lblTotalDepense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalDepense.ForeColor = System.Drawing.Color.White;
-            this.lblTotalDepense.Location = new System.Drawing.Point(83, 590);
-            this.lblTotalDepense.Name = "lblTotalDepense";
-            this.lblTotalDepense.Size = new System.Drawing.Size(0, 29);
-            this.lblTotalDepense.TabIndex = 3;
-            // 
-            // lblTotalRevenu
-            // 
-            this.lblTotalRevenu.AutoSize = true;
-            this.lblTotalRevenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRevenu.ForeColor = System.Drawing.Color.White;
-            this.lblTotalRevenu.Location = new System.Drawing.Point(59, 597);
-            this.lblTotalRevenu.Name = "lblTotalRevenu";
-            this.lblTotalRevenu.Size = new System.Drawing.Size(0, 44);
-            this.lblTotalRevenu.TabIndex = 4;
-            // 
             // panResultat
             // 
             this.panResultat.Controls.Add(this.lblResultat);
@@ -370,7 +370,7 @@
             this.lblResultat.AutoSize = true;
             this.lblResultat.Location = new System.Drawing.Point(29, 11);
             this.lblResultat.Name = "lblResultat";
-            this.lblResultat.Size = new System.Drawing.Size(0, 30);
+            this.lblResultat.Size = new System.Drawing.Size(0, 20);
             this.lblResultat.TabIndex = 0;
             // 
             // UnionBudget

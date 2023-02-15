@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,35 @@ namespace UnionBudget
         public static List<string> listSousCategories = new List<string>();
         public static List<Depense> listDesDespenses = new List<Depense>();
         public static List<Revenu> listeDesRevenu = new List<Revenu>();
+        public static Double Reste = 0;
         public UnionBudget()
         {
             InitializeComponent();
+        }
+        private void GenererFichierCsv(List<Depense> les_depenses,List<Revenu> les_revenus,Double Reste)
+        {
+            // Définir le nom du fichier CSV à générer
+            string fileName = "sommaire.csv";
+
+            // Créer une chaîne contenant toutes les lignes CSV
+            StringBuilder csv = new StringBuilder();
+            csv.AppendLine(string.Join(",", DateTime.Now));
+            csv.AppendLine("LISTE DES DEPENSES");
+            foreach ( Depense depense in les_depenses)
+            {
+                csv.AppendLine(string.Join(",", depense.titre+" Montant:"+ depense.montant));
+            }
+            csv.AppendLine("LISTE DES REVENUS");
+            foreach (Revenu revenu in les_revenus)
+            {
+                csv.AppendLine(string.Join(",", revenu.titre + " Montant:" + revenu.montant));
+            }
+
+            // Écrire la chaîne CSV dans le fichier
+            File.WriteAllText(fileName, csv.ToString());
+
+            // Afficher un message de confirmation
+            MessageBox.Show("Le fichier CSV a été généré.");
         }
 
         private void UnionBudget_Load(object sender, EventArgs e)
@@ -244,6 +271,11 @@ namespace UnionBudget
             statusBarFooter.Text = "Mise a jour ...";
             statusBarFooter.BackColor = Color.Red;
 
+        }
+
+        private void mnuImprimer_Click(object sender, EventArgs e)
+        {
+            GenererFichierCsv(listDesDespenses,listeDesRevenu,Reste);
         }
     }
 }
